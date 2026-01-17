@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Color Popcorn (Youth Edition)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="styles.css" rel="stylesheet" />
+</head>
+<body class="theme-neon">
+  <header class="hud fade show">
+    <div class="hud-left">
+      <div class="target-color">
+        <span class="label">Target:</span>
+        <span id="targetSwatch" class="swatch"></span>
+      </div>
+      <div class="progress">
+        <div class="progress-label">Progress</div>
+        <div class="progress-bar">
+          <div id="progressFill" class="progress-fill"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hud-right">
+      <div class="stat"><span>Level</span> <strong id="levelText">1</strong></div>
+      <div class="stat"><span>Score</span> <strong id="scoreText">0</strong></div>
+      <div class="lives">
+        <span>Lives</span>
+        <div id="livesContainer" class="hearts"></div>
+      </div>
+      <button id="bombButton" class="bomb-btn" disabled title="Bomb power-up">💣 Bomb (0)</button>
+      <button id="muteButton" class="mute-btn" title="Toggle sound">🔈 Sound: On</button>
+      <button id="musicButton" class="mute-btn" title="Toggle background music">🎵 Music: On</button>
+      <label class="toggle" title="Color-blind mode"><input type="checkbox" id="cbToggle"> Color‑blind</label>
+      <select id="themeSelect" class="select"><option value="neon">Neon</option><option value="sunset">Sunset</option><option value="forest">Forest</option><option value="midnight">Midnight</option></select>
+    </div>
+  </header>
+
+  <main>
+    <div id="game" class="game" aria-label="Game area"></div>
+
+    <!-- Toasts -->
+    <div id="toast" class="toast"></div>
+
+    <!-- Start screen -->
+    <div id="startOverlay" class="overlay show">
+      <div class="panel">
+        <h1>Color Popcorn <span class="badge">Youth Edition ✨</span></h1>
+        <p class="sub">Pick your vibe, choose a color, and pop your way to the top. 🚀</p>
+        <div class="color-grid" id="colorGrid"></div>
+        <div class="row">
+          <input id="playerName" class="name-input" type="text" maxlength="24" placeholder="Your name (optional)" />
+          <select id="themeSelectStart" class="select"><option value="neon">Neon</option><option value="sunset">Sunset</option><option value="forest">Forest</option><option value="midnight">Midnight</option></select>
+        </div>
+        <button id="startBtn" class="primary" disabled>Start</button>
+        <p class="hint">Pop only your chosen color to fill the progress box. Avoid 🔥 fire balls. Rack up combos to earn 💣 bombs!</p>
+        <hr />
+        <div class="grid-2">
+          <div>
+            <h2>High Scores</h2>
+            <ol id="highScoresList" class="scores"></ol>
+            <button id="clearScoresBtn" class="secondary">Clear scores</button>
+          </div>
+          <div>
+            <h2>Today’s Challenge</h2>
+            <ul class="challenge">
+              <li>Reach Level 3 💪</li>
+              <li>Trigger 2 Bombs 💣💣</li>
+              <li>Avoid 5 Fire Balls 🔥</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bomb placement overlay -->
+    <div id="bombOverlay" class="overlay">
+      <div class="panel mini">
+        <h2>Place Your Bomb</h2>
+        <p>Tap/click anywhere in the play area to detonate.</p>
+        <button id="cancelBombBtn" class="secondary">Cancel</button>
+      </div>
+    </div>
+
+    <!-- Game Over -->
+    <div id="gameOverOverlay" class="overlay">
+      <div class="panel">
+        <h1>Game Over</h1>
+        <p>Your final score: <strong id="finalScoreText">0</strong></p>
+        <div class="row">
+          <button id="shareBtn" class="secondary">📣 Share</button>
+          <button id="restartBtn" class="primary">Restart</button>
+        </div>
+        <hr />
+        <h2>High Scores</h2>
+        <ol id="highScoresListGame" class="scores"></ol>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
